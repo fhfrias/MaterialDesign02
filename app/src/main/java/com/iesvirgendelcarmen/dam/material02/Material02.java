@@ -15,6 +15,8 @@ public class Material02 extends AppCompatActivity {
 
     Interpolator interpolador;
     FloatingActionButton fab;
+    boolean tocado = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class Material02 extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                    fab.animate().scaleX(0).scaleY(0).setInterpolator(interpolador).setDuration(600).start();
+
             }
 
             @Override
@@ -49,7 +51,11 @@ public class Material02 extends AppCompatActivity {
 
     }
 
-    public void fabTocado(View view) {
-        Toast.makeText(this,"FAB TOCADO",Toast.LENGTH_SHORT).show();
+
+    public void fabToc(View view) {
+        fab.animate().scaleX(0).scaleY(0).setInterpolator(interpolador).setDuration(1000).start();
+        tocado = !tocado;
+        view.animate().
+                rotation(tocado ? 45f : 0).setInterpolator(interpolador).start();
     }
 }
